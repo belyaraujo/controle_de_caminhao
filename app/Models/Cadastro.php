@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\CadastrosController;
 
 class Cadastro extends Model
 {

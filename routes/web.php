@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VisitantesController;
 use App\Http\Controllers\HistoricoController;
-use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\CadastrosController;
 use App\Models\Visitante;
 
 /*
@@ -19,9 +19,9 @@ use App\Models\Visitante;
 
 //CADASTRO
 
-Route::get('/', [CadastroController::class, 'show'])
+Route::get('/', [CadastrosController::class, 'show'])
 ->name('cadastro');
-Route::post('/cadastrados', [CadastroController::class, 'store'])
+Route::get('/cadastrados', [CadastrosController::class, 'index'])
 ->name('cadastrados');
 
 
@@ -29,7 +29,7 @@ Route::get('/solicitacao', [VisitantesController::class, 'show2'])
 ->name('solicitacao');
 
 
-Route::get('/historico', [CadastroController::class, 'show'])
+Route::get('/historico', [CadastrosController::class, 'show'])
 ->name('historico');
 
 //VISITANTES

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\VisitantesController;
 
 
+
 class HistoricoController extends Controller
 {
     /**

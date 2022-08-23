@@ -1,15 +1,13 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Models\Cadastro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HistoricoController;
-use App\Http\Controllers\CadastroController;
 
 
-class VisitantesController extends Controller
+class CadastrosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,7 @@ class VisitantesController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -26,14 +24,15 @@ class VisitantesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request  $request)
+    public function create()
     {
-        $cadastro = new Cadastro();
-        $cadastro->placa = $request->input('placa');
-        $cadastro->nome = $request->input('nome');
-        $cadastro->mat_equip = $request->input('mat_equip');
+        $solicitacao = new Cadastros();
+        $solicitacao->placa = $request->input('placa');
+        $solicitacao->nome = $request->input('nome');
 
-        $cadastro->save();
+
+        $solicitacao->save();
+
     }
 
     /**
@@ -45,13 +44,13 @@ class VisitantesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'required', 
+            'placa' => 'required',
             'mat_equip' => 'required',
         ]);
 
         Cadastro::create($request->all());
 
-        return redirect()->route('solicitacao');
+        return redirect()->route('historico');
     }
 
     /**
@@ -67,14 +66,6 @@ class VisitantesController extends Controller
         return view('historico', ['cadastro' => $cadastro]);
     }
 
-    public function show2(Request $request)
-    {
-       
-
-        return view('solicitacao');
-    }
-
-    
     /**
      * Show the form for editing the specified resource.
      *

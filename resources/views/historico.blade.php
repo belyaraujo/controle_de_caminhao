@@ -7,7 +7,7 @@
 
     <div class="container">
 
-        <a class="btn btn-outline-primary" href="/" role="button">CADASTRADOS</a>
+        <a class="btn btn-outline-primary" href="{{ route('cadastrados') }}" role="button">CADASTRADOS</a>
 
         <a class="btn btn-outline-primary" href="/solicitacao" role="button">NOVO CADASTRO</a>
         <br><br>
