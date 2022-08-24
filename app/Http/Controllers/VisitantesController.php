@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Visitante;
 use Illuminate\Http\Request;
-use App\Http\Controllers\HistoricoController;
+// use App\Http\Controllers\HistoricoController;
 
 class VisitantesController extends Controller
 {
@@ -23,7 +23,7 @@ class VisitantesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $solicitacao = new Visitante();
         $solicitacao->placa = $request->input('placa');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cadastro;
 use Illuminate\Http\Request;
-use App\Http\Controllers\VisitantesController;
+// use App\Http\Controllers\VisitantesController;
 
 
 
@@ -25,7 +25,7 @@ class HistoricoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $cadastro = new Cadastro();
         $cadastro->placa = $request->input('placa');

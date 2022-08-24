@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Cadastro;
 use Illuminate\Http\Request;
-use App\Http\Controllers\HistoricoController;
+// use App\Http\Controllers\HistoricoController;
+// use App\Http\Controllers\CadastroController;
 
 
-class CadastrosController extends Controller
+class CadastroController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -24,9 +26,9 @@ class CadastrosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $solicitacao = new Cadastros();
+        $solicitacao = new Cadastro();
         $solicitacao->placa = $request->input('placa');
         $solicitacao->nome = $request->input('nome');
 

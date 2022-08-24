@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VisitantesController;
 use App\Http\Controllers\HistoricoController;
-use App\Http\Controllers\CadastrosController;
-use App\Models\Visitante;
+use App\Http\Controllers\CadastroController;
+// use App\Models\Visitante;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,25 +17,24 @@ use App\Models\Visitante;
 |
 */
 
-//CADASTRO
 
-Route::get('/', [CadastrosController::class, 'show'])
+// Cadastro
+Route::get('/', [CadastroController::class, 'show'])
 ->name('cadastro');
-Route::get('/cadastrados', [CadastrosController::class, 'index'])
+
+Route::post('/cadastrados', [CadastroController::class, 'store'])
 ->name('cadastrados');
 
-
+// Visitantes
 Route::get('/solicitacao', [VisitantesController::class, 'show2'])
 ->name('solicitacao');
 
-
-Route::get('/historico', [CadastrosController::class, 'show'])
-->name('historico');
-
-//VISITANTES
-
-Route::get('/historico/visitante', [VisitantesController::class, 'show'])
-->name('visitante');
 Route::post('/visitantes', [VisitantesController::class, 'store'])
 ->name('visitantes');
 
+// Histórico
+Route::get('/historico', [HistoricoController::class, 'show'])
+->name('historico');
+
+Route::get('/historico/visitante', [HistoricoController::class, 'show'])
+->name('visitante');
