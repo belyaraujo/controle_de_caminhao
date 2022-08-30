@@ -45,7 +45,7 @@
 
                           <div class="mb-3">
                             
-                            <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Materiais / Equipamentos:</label>
+                            <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Material | Equipamento:</label>
                             <input type="text" class="form-control" name="mat_equip" placeholder="Digite aqui...">
                           </div>
 

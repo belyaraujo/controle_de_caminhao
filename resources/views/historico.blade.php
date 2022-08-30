@@ -19,10 +19,10 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav justify-content-end">
-                          <a class="nav-link active" aria-current="true" href="/historico">Novacap</a>
+                          <a type="button" class="btn btn-info" href="/historico">Novacap</a>
                         </li>
                         <li class="nav justify-content-end">
-                            <a class="nav-link active" aria-current="true" href="/historico/visitante">Visitante</a>
+                            <a type="button" class="btn btn-info" href="/historico/visitante">Visitante</a>
                           </li>
 
                 </ul> 
@@ -36,7 +36,7 @@
                             <tr>
                                 <th scope="col">Nº</th>
                                 <th scope="col">Placa</th>
-                                <th scope="col">Material / Equipamento</th>
+                                <th scope="col">Material | Equipamento</th>
                                 <th scope="col">Entrada</th>
                                 <th scope="col">Saida</th>
                             </tr>

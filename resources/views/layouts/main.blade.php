@@ -40,7 +40,7 @@
                         <a class="nav-link text-dark" href="/">Cadastrados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('solicitacao') }}"> Novo Cadastro</a>
+                        <a class="nav-link text-dark" href="{{ route('solicitacao') }}">Novo Cadastro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/historico">Histórico</a>
