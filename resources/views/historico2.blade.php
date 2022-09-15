@@ -2,12 +2,13 @@
 @section('title', 'Novacap - Histórico')
 @section('content')
 
+
     <br><br>
    
 
-    <div class="container">
+  <div class="container">
 
-        <a class="btn btn-outline-primary" href="/" role="button">CADASTRADOS</a>
+        <a class="btn btn-outline-primary" href="{{ route('cadastrados') }}" role="button">CADASTRADOS</a>
 
         <a class="btn btn-outline-primary" href="/solicitacao" role="button">NOVO CADASTRO</a>
         <br><br>
@@ -19,27 +20,29 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav justify-content-end">
+                        
                           <a type="button" class="btn btn-primary" href="/historico">Novacap</a>
                         </li>
                         <li class="nav justify-content-end">
                             <a type="button" class="btn btn-primary" href="/historico/visitante">Visitante</a>
                           </li>
-
                 </ul> 
                 </div>
             </div>
+            
                 <div class="card-body text-dark">
                     <p class="card-text">
                         
                     <table class="table table-hover">
-                        <thead class="table-primary" style="background-color: 	#E1F5FE;">
+                        <thead class="table-primary" style="background-color:	#cae8f5;">
                             <tr>
                                 <th scope="col">Nº</th>
                                 <th scope="col">Placa</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Material | Equipamento</th>
-                                <th scope="col">Entrada</th>
-                                <th scope="col">Saida</th>
+                                <th scope="col">Entrada do Caminhão</th>
+                                <th scope="col">Saida do Caminhão</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -58,8 +61,10 @@
                         </tbody>
                     </table>
                     </p>
+                 </div>
                 </div>
-
+            </div>
+        </div>
             @endsection
 
             

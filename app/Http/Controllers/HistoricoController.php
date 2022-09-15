@@ -29,9 +29,7 @@ class HistoricoController extends Controller
     {
         $cadastro = new Cadastro();
         $cadastro->placa = $request->input('placa');
-
         $cadastro->mat_equip = $request->input('mat_equip');
-
         $cadastro->save();
     }
 

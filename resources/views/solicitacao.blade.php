@@ -31,12 +31,12 @@
                         <br>
                         <br>
 
-
+                        
                         {{-- Cadastrar nome motorista --}}
 
                         <div class="mb-3">
                             
-                            <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Nome:</label>
+                            <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Nome do motorista:</label>
                             <input type="text" class="form-control" name="nome" placeholder="Digite aqui...">
                           </div>
                           <br>
@@ -48,13 +48,16 @@
                             <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Material | Equipamento:</label>
                             <input type="text" class="form-control" name="mat_equip" placeholder="Digite aqui...">
                           </div>
-
+                          <div class="alert alert-primary" role="alert">
+                            Informe o código PRÉ-FIXO, em caso de saída de Equipamentos!
+                          </div>
+                        
                         <br><br>
                         <div class="container">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <a class="btn btn-outline-danger me-md-2" href=""
-                                    role="button"style="margin: 0 15px;">Cancelar</a>
-                                <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+                                <a class="btn btn-outline-danger me-md-2"
+                                    role="button"style="margin: 0 15px;">Cancelar Cadastro</a>
+                                    <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
 
                             </div>
                         </div>

@@ -48,6 +48,11 @@
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite aqui...">
                           </div>
 
+                          <div class="alert alert-primary" role="alert">
+                            Informe o código PRÉ-FIXO, em caso de saída de Equipamentos!
+                          </div>
+                        
+
                           
                           {{--<div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -65,13 +70,13 @@
                         <div class="container">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <a class="btn btn-outline-danger me-md-2" href="/historico"
-                                    role="button"style="margin: 0 15px;">Cancelar</a>
-                                <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                                    role="button"style="margin: 0 15px;">Cancelar Cadastro</a>
+                                <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
 
                             </div>
                         </div>
                 </div>
-                
+            </form>
                 </p>
             </div>
         </div>

@@ -19,10 +19,10 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav justify-content-end">
-                          <a type="button" class="btn btn-info" href="/historico">Novacap</a>
+                          <a type="button" class="btn btn-primary" href="/historico">Novacap</a>
                         </li>
                         <li class="nav justify-content-end">
-                            <a type="button" class="btn btn-info" href="/historico/visitante">Visitante</a>
+                            <a type="button" class="btn btn-primary" href="/historico/visitante">Visitante</a>
                           </li>
 
                 </ul> 
@@ -32,22 +32,30 @@
                     <p class="card-text">
                         
                     <table class="table table-hover">
-                        <thead class="table-primary" style="background-color: 	#E1F5FE;">
+                        <thead class="table-primary" style="background-color: 	#cae8f5;">
                             <tr>
                                 <th scope="col">Nº</th>
                                 <th scope="col">Placa</th>
                                 <th scope="col">Material | Equipamento</th>
-                                <th scope="col">Entrada</th>
                                 <th scope="col">Saida</th>
+                                <th scope="col">Retorno</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             <tr>
-                                <th scope="col">1</th>
-                                <th scope="col">ABC1234</th>
-                                <th scope="col">areia e cimento</th>
-                                <th scope="col">16/08/2022 - 15:40 </th>
+                            {{--  <tbody>
+
+                            @foreach ($historico as $hist)
+                                <tr>
+
+                                    <th value="{{ $hist->id }}">{{ $hist->id }}</th>
+                                    <td value="{{ $hist->id }}">{{ $hist->placa }}</td>
+                                    <td value="{{ $hist->id }}">{{ $hist->created_at->format('d/m/Y H:i') }}</td>
+
+                                </tr>
+                            @endforeach
+                        </tbody>--}}
                             </tr>
                         </tbody>
                     </table>

@@ -21,7 +21,7 @@ use App\Models\Visitante;
 
 Route::get('/', [CadastrosController::class, 'show'])
 ->name('cadastro');
-Route::get('/cadastrados', [CadastrosController::class, 'index'])
+Route::post('/cadastrados', [CadastrosController::class, 'index'])
 ->name('cadastrados');
 
 
@@ -38,4 +38,7 @@ Route::get('/historico/visitante', [VisitantesController::class, 'show'])
 ->name('visitante');
 Route::post('/visitantes', [VisitantesController::class, 'store'])
 ->name('visitantes');
+
+Route::get('/relatorio', [relatorio::class, 'relatorio'])
+->name('relatorio');
 

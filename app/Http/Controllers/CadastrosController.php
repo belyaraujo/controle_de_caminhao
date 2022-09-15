@@ -24,14 +24,15 @@ class CadastrosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $solicitacao = new Cadastros();
+        $solicitacao = new Cadastro();
         $solicitacao->placa = $request->input('placa');
         $solicitacao->nome = $request->input('nome');
 
 
         $solicitacao->save();
+
 
     }
 
