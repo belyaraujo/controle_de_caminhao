@@ -45,6 +45,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/historico">Histórico</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/relatorio">Relatório</a>
+                    </li>
 
                 </ul>
         </div>

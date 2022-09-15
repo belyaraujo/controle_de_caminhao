@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('visitantes', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('placa');
-            $table->string('nome');
+        Schema::create('caminhao', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->foreignId('id_placa')->constrained('placas', 'id'); 
             $table->string('mat_equip');
-            //$table->boolean('entrada');
-            //$table->boolean('saida');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visitantes');
+        Schema::dropIfExists('caminhao');
     }
 };

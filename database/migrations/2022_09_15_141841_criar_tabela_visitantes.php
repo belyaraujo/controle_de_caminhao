@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('caminhao', function (Blueprint $table) {
+        Schema::create('visitantes', function (Blueprint $table) {
             $table->id('id');
             $table->string('placa');
+            $table->string('nome');
             $table->string('mat_equip');
+            //$table->boolean('entrada');
+            //$table->boolean('saida');
             $table->timestamps();
+
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caminhao');
+        Schema::dropIfExists('visitantes');
     }
 };

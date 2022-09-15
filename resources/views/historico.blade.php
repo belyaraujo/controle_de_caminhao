@@ -7,10 +7,19 @@
 
     <div class="container">
 
-        <a class="btn btn-outline-primary" href="{{ route('cadastrados') }}" role="button">CADASTRADOS</a>
+        <a class="btn btn-outline-primary" href="{{route ('cadastro')}}" role="button">CADASTRADOS</a>
 
-        <a class="btn btn-outline-primary" href="/solicitacao" role="button">NOVO CADASTRO</a>
+        <a class="btn btn-outline-primary" href="{{route('solicitacao')}}" role="button">NOVO CADASTRO</a>
         <br><br>
+
+          @if(session('msg'))
+          <div class="alert alert-success" role="alert">
+           <p class="msg">
+                {{session('msg')}}
+           </p>
+        </div>
+          @endif
+         
 
         {{-- dd($solicitacao) --}}
         <div class="mh-100" style="width: 1200px; height: 1000px;">
@@ -42,21 +51,16 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr>
-                            {{--  <tbody>
-
-                            @foreach ($historico as $hist)
+                            @foreach ($cadastro as $cadas)
                                 <tr>
-
-                                    <th value="{{ $hist->id }}">{{ $hist->id }}</th>
-                                    <td value="{{ $hist->id }}">{{ $hist->placa }}</td>
-                                    <td value="{{ $hist->id }}">{{ $hist->created_at->format('d/m/Y H:i') }}</td>
-
+                                    <th value="{{ $cadas->id }}">{{ $cadas->id }}</th>
+                                    <td value="{{ $cadas->id }}">{{ $cadas->placas->placa }}</td>
+                                    <td value="{{ $cadas->id }}">{{ $cadas->mat_equip }}</td>
+                                    <td value="{{ $cadas->id }}">{{ $cadas->created_at->format('d/m/Y H:i') }}</td>
+                                    
                                 </tr>
                             @endforeach
-                        </tbody>--}}
-                            </tr>
+
                         </tbody>
                     </table>
                     </p>

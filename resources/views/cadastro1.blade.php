@@ -48,14 +48,24 @@
                             <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Material | Equipamento:</label>
                             <input type="text" class="form-control" name="mat_equip" placeholder="Digite aqui...">
                           </div>
-                          <div class="alert alert-primary" role="alert">
+                          <div class="alert alert-warning" role="alert">
                             Informe o código PRÉ-FIXO, em caso de saída de Equipamentos!
                           </div>
+
+                          @if ($errors->any())
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                      @endif
                         
                         <br><br>
                         <div class="container">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <a class="btn btn-outline-danger me-md-2"
+                                <a class="btn btn-outline-danger me-md-2" href="{{route('historico')}}"
                                     role="button"style="margin: 0 15px;">Cancelar Cadastro</a>
                                     <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
 

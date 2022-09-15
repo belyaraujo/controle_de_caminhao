@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VisitantesController;
+use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\HistoricoController;
-use App\Http\Controllers\CadastrosController;
-use App\Models\Visitante;
+use App\Http\Controllers\CadastradosController;
+use App\Http\Controllers\RelatorioController;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\DocumentoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,28 +19,31 @@ use App\Models\Visitante;
 |
 */
 
-//CADASTRO
+//CADASTRADOS
 
-Route::get('/', [CadastrosController::class, 'show'])
+Route::get('/', [CadastradosController::class, 'placa'])
 ->name('cadastro');
-Route::post('/cadastrados', [CadastrosController::class, 'index'])
+Route::post('/cadastrados', [CadastradosController::class, 'store'])
 ->name('cadastrados');
 
-
-Route::get('/solicitacao', [VisitantesController::class, 'show2'])
+//CADASTRO
+Route::get('/cadastro', [CadastroController::class, 'show2'])
 ->name('solicitacao');
 
 
-Route::get('/historico', [CadastrosController::class, 'show'])
+Route::get('/historico', [HistoricoController::class, 'show'])
 ->name('historico');
 
 //VISITANTES
 
-Route::get('/historico/visitante', [VisitantesController::class, 'show'])
+Route::get('/historico/visitante', [CadastroController::class, 'show'])
 ->name('visitante');
-Route::post('/visitantes', [VisitantesController::class, 'store'])
+Route::post('/visitantes', [CadastroController::class, 'store'])
 ->name('visitantes');
 
-Route::get('/relatorio', [relatorio::class, 'relatorio'])
-->name('relatorio');
+Route::get('/relatorio', [RelatorioController::class, 'relatorio'])->name('relatorio');
 
+Route::get('/generate-pdf', [RelatorioController::class, 'Docs'])->name('gera-pdf');
+//Route::get('/welcome', [RelatorioController::class, 'Docs'])->name('gera-pdf');
+
+//gera-pdf

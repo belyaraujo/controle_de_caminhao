@@ -8,10 +8,18 @@
 
   <div class="container">
 
-        <a class="btn btn-outline-primary" href="{{ route('cadastrados') }}" role="button">CADASTRADOS</a>
+        <a class="btn btn-outline-primary" href="{{route ('cadastro') }}" role="button">CADASTRADOS</a>
 
-        <a class="btn btn-outline-primary" href="/solicitacao" role="button">NOVO CADASTRO</a>
+        <a class="btn btn-outline-primary" href="{{route('solicitacao')}}" role="button">NOVO CADASTRO</a>
         <br><br>
+
+        @if(session('msg'))
+        <div class="alert alert-success" role="alert">
+         <p class="msg">
+              {{session('msg')}}
+         </p>
+      </div>
+        @endif
 
         {{-- dd($solicitacao) --}}
         <div class="mh-100" style="width: 1200px; height: 1000px;">
@@ -42,26 +50,26 @@
                                 <th scope="col">Material | Equipamento</th>
                                 <th scope="col">Entrada do Caminhão</th>
                                 <th scope="col">Saida do Caminhão</th>
+                              
                                
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach ($solicitacao as $solic)
                                 <tr>
-
                                     <th value="{{ $solic->id }}">{{ $solic->id }}</th>
                                     <td value="{{ $solic->id }}">{{ $solic->placa }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->nome }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->mat_equip }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->created_at->format('d/m/Y H:i') }}</td>
-
+                                    
                                 </tr>
                             @endforeach
+
                         </tbody>
                     </table>
-                    </p>
-                 </div>
+                </p>
+                </div>
                 </div>
             </div>
         </div>

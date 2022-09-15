@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cadastro;
+use App\Models\Visitante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HistoricoController;
 
-
-class CadastrosController extends Controller
+class CadastroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class CadastrosController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -24,15 +23,14 @@ class CadastrosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $solicitacao = new Cadastro();
+        $solicitacao = new Visitante();
         $solicitacao->placa = $request->input('placa');
         $solicitacao->nome = $request->input('nome');
-
+        $solicitacao->mat_equip = $request->input('mat_equip');
 
         $solicitacao->save();
-
 
     }
 
@@ -45,35 +43,44 @@ class CadastrosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'required',
+            'placa' => 'required|max:7',
+            'nome' => 'required',
             'mat_equip' => 'required',
         ]);
 
-        Cadastro::create($request->all());
+        Visitante::create($request->all());
 
-        return redirect()->route('historico');
+        return redirect()->route('visitante')->with('msg','Criado com sucesso!');
     }
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cadastro  $cadastro
+     * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function show(Cadastro $cadastro)
+    public function show(Request $request)
     {
-        $cadastro = Cadastro::get();
+        $solicitacao = Visitante::get();
 
-        return view('historico', ['cadastro' => $cadastro]);
+        return view('historico2', ['solicitacao' => $solicitacao]);
+    }
+
+    public function show2(Request $request)
+    {
+       
+
+        return view('cadastro1');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cadastro  $cadastro
+     * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cadastro $cadastro)
+    public function edit(Visitante $visitante)
     {
         //
     }
@@ -82,10 +89,10 @@ class CadastrosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cadastro  $cadastro
+     * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cadastro $cadastro)
+    public function update(Request $request, Visitante $visitante)
     {
         //
     }
@@ -93,10 +100,10 @@ class CadastrosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cadastro  $cadastro
+     * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cadastro $cadastro)
+    public function destroy(Visitante $visitante)
     {
         //
     }
