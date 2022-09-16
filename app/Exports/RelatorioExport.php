@@ -28,7 +28,7 @@ class RelatorioExport implements WithMapping, WithHeadings, Fromquery, WithCusto
     {
 
         $solic = Cadastro::with('placas')->where('id_placa', $this->id_placa)
-            ->whereBetween('created_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59']);
+            ->whereBetween('created_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59'])->get();
 
         return $solic;
         //print_r($solic);
@@ -41,7 +41,7 @@ class RelatorioExport implements WithMapping, WithHeadings, Fromquery, WithCusto
             $solic->placas->placa,
             $solic->created_at->format('d/m/Y'),
             $solic->where('id_placa', $this->id_placa)
-                ->whereBetween('created_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59']),
+                ->whereBetween('created_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59'])->get(),
         ];
     }
 

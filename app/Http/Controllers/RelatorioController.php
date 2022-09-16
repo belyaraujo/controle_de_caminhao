@@ -29,7 +29,7 @@ class RelatorioController extends Controller
 
 
 
-    return view('relatorio', compact('placa','solicitacao'));
+    return view('relatorio', compact('placa'));
   }
 
 

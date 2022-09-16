@@ -32,8 +32,7 @@
                         <div class="form-group">
                             <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Placas:</label>
                             <select class="form-control" name="id_placa" id="placa">
-                                <option>Selecione uma Placa</option>
-
+                                <option>Selecione uma Placa </option>
                                 @foreach ($placa as $placa)
                                     <option value="{{ $placa->id }}">{{ $placa->placa }}
                                     </option>
