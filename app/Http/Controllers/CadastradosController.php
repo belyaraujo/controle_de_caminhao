@@ -6,6 +6,7 @@ use App\Models\Cadastro;
 use App\Models\Placa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HistoricoController;
+use App\Http\Controllers\CadastroController;
 
 
 class CadastradosController extends Controller

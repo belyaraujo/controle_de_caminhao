@@ -23,7 +23,7 @@ class CadastroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $solicitacao = new Visitante();
         $solicitacao->placa = $request->input('placa');
