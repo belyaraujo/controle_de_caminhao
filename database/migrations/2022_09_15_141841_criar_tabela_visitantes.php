@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('placa');
             $table->string('nome');
             $table->string('mat_equip');
-            //$table->boolean('entrada');
-            //$table->boolean('saida');
+            $table->string('mat_equip2')->default('null');
             $table->timestamps();
 
         });

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->foreignId('id_placa')->constrained('placas', 'id'); 
             $table->string('mat_equip');
+            $table->string('mat_equip2')->default('null');
             $table->timestamps();
         });
     }

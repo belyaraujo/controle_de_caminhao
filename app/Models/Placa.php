@@ -12,7 +12,7 @@ class Placa extends Model
 
     protected $table = 'placas';
 
-    protected $fillable = ['placa'];
+    protected $fillable = ['id_placa'];
 
     public function cadastrados(){
 

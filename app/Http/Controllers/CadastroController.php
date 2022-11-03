@@ -43,9 +43,10 @@ class CadastroController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'required|max:7',
+            'placa' => 'required|max:7|min:7',
             'nome' => 'required',
             'mat_equip' => 'required',
+            
         ]);
 
         Visitante::create($request->all());
@@ -80,9 +81,11 @@ class CadastroController extends Controller
      * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Visitante $visitante)
+    public function edit($id)
     {
-        //
+        $solicitacao = Visitante::findOrFail($id);
+
+        return view('historico2', ['solicitacao' => $solicitacao]);
     }
 
     /**
@@ -92,9 +95,17 @@ class CadastroController extends Controller
      * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Visitante $visitante)
+    public function update(Request $request, $solicitacao)
     {
-        //
+        $solicitacao = Visitante::findOrFail($solicitacao);
+        
+        $solicitacao-> update([
+            'id_visitante' => $request -> id_visitante,
+            'mat_equip2' => $request -> mat_equip2,
+        ]);
+        $solicitacao->save();
+
+        return redirect()->route('visitante')->with('msg','Salvo com sucesso!');
     }
 
     /**

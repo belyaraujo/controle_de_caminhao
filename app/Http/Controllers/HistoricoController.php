@@ -28,7 +28,7 @@ class HistoricoController extends Controller
     public function create(Request $request)
     {
         $cadastro = new Cadastro();
-        $cadastro->placa = $request->input('placa');
+        $cadastro->id_placa = $request->input('id_placa');
         $cadastro->mat_equip = $request->input('mat_equip');
         $cadastro->save();
     }
@@ -42,8 +42,9 @@ class HistoricoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'required',
+            'id_placa' => 'required',
             'mat_equip' => 'required',
+            'mat_equip2' => 'required',
         ]);
 
         Cadastro::create($request->all());
@@ -61,6 +62,7 @@ class HistoricoController extends Controller
     public function show(Request $request)
     {
         $cadastro = Cadastro::get();
+        //$data = Cadastro::find('id')->with(['cadastro'])->get();
 
         return view('historico', ['cadastro' => $cadastro]);
     }
@@ -71,9 +73,12 @@ class HistoricoController extends Controller
      * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $visitante)
+    public function edit($id)
     {
-        //
+        $cadastro = Cadastro::findOrFail($id);
+       
+
+        return view('historico', ['cadastro' => $cadastro]);
     }
 
     /**
@@ -83,9 +88,29 @@ class HistoricoController extends Controller
      * @param  \App\Models\Visitante  $visitante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Request $visitante)
+    public function update(Request $request, $id)
     {
-        //
+        
+        //$cadastro = Cadastro::findOrFail($id);
+        //$cadastro->mat_equip2 = $request->input('mat_equip2');
+        //$cadastro->save();
+
+        $cadastro = Cadastro::findOrFail($id);
+       
+        
+          //$cadastro-> update([
+          //'id_caminhao' => $request -> id_caminhao,
+            //'mat_equip2' => $request -> mat_equip2,
+        //]);
+
+
+        $cadastro->mat_equip2 = $request->input('mat_equip2');
+
+
+        $cadastro->save();
+
+        return redirect()->route('historico')->with('msg','Salvo com sucesso!');
+        //return view('historico', ['cadastro' => $cadastro]);
     }
 
     /**

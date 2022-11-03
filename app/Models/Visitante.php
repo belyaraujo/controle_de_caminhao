@@ -12,5 +12,5 @@ class Visitante extends Model
 
     protected $table = 'visitantes';
 
-    protected $fillable = ['placa', 'nome', 'mat_equip'];
+    protected $fillable = ['placa', 'nome', 'mat_equip', 'mat_equip2'];
 }

@@ -2,23 +2,31 @@
 @section('title', 'Novacap - Histórico')
 @section('content')
 
-
     <br><br>
-   
+    <script>
+        function chamaId(id) {
+            var id;
 
-  <div class="container">
+            event.preventDefault();
 
-        <a class="btn btn-outline-primary" href="{{route ('cadastro') }}" role="button">CADASTRADOS</a>
+            id = document.getElementById('materialteste').value = id;
+        }
+    </script>
 
-        <a class="btn btn-outline-primary" href="{{route('solicitacao')}}" role="button">NOVO CADASTRO</a>
+
+    <div class="container">
+
+        <a class="btn btn-outline-primary" href="{{ route('cadastro') }}" role="button">CADASTRADOS</a>
+
+        <a class="btn btn-outline-primary" href="{{ route('solicitacao') }}" role="button">NOVO CADASTRO</a>
         <br><br>
 
-        @if(session('msg'))
-        <div class="alert alert-success" role="alert">
-         <p class="msg">
-              {{session('msg')}}
-         </p>
-      </div>
+        @if (session('msg'))
+            <div class="alert alert-success" role="alert">
+                <p class="msg">
+                    {{ session('msg') }}
+                </p>
+            </div>
         @endif
 
         {{-- dd($solicitacao) --}}
@@ -26,21 +34,21 @@
             <div class="card border-dark" style="max-width: 700rem;">
                 <div class="card-header text-white" style="background-color: #044f84;">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav justify-content-end">
-                        
-                          <a type="button" class="btn btn-primary" href="/historico">Novacap</a>
-                        </li>
-                        <li class="nav justify-content-end">
-                            <a type="button" class="btn btn-primary" href="/historico/visitante">Visitante</a>
-                          </li>
-                </ul> 
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav justify-content-end">
+
+                                <a type="button" class="btn btn-primary" href="/historico">Novacap</a>
+                            </li>
+                            <li class="nav justify-content-end">
+                                <a type="button" class="btn btn-primary" href="/historico/visitante">Visitante</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            
+
                 <div class="card-body text-dark">
                     <p class="card-text">
-                        
+
                     <table class="table table-hover">
                         <thead class="table-primary" style="background-color:	#cae8f5;">
                             <tr>
@@ -48,10 +56,12 @@
                                 <th scope="col">Placa</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Material | Equipamento</th>
-                                <th scope="col">Entrada do Caminhão</th>
-                                <th scope="col">Saida do Caminhão</th>
-                              
-                               
+                                <th scope="col">Entrada</th>
+                                <th scope="col">Saida</th>
+                                <th scope="col">Material | Equipamento</th>
+                                <th scope="col">Salvar informação</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
@@ -62,17 +72,51 @@
                                     <td value="{{ $solic->id }}">{{ $solic->nome }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->mat_equip }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->created_at->format('d/m/Y H:i') }}</td>
-                                    
+                                    <td value="{{ $solic->id }}">{{ $solic->updated_at->format('d/m/Y H:i') ?? '-' }}</td>
+                                    <td value="{{ $solic->id }}">{{ $solic->mat_equip2 }}</td>
+                                    <td><button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                            data-bs-target="#createModal" data-id="{{ $solic->id }}"
+                                            onClick="chamaId(id)" id="{{ $solic->id }}">
+                                            Salvar
+                                        </button></td>
                                 </tr>
                             @endforeach
 
                         </tbody>
                     </table>
-                </p>
-                </div>
+                    </p>
                 </div>
             </div>
         </div>
-            @endsection
+        <form action="{{ route('atualizar2', $solic->id) }}" method="POST">
+            <br>
+            @csrf
 
-            
+            <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Salvar retorno</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <input type="text" id="materialteste" value="" name="id_visitante">
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Materiais |
+                                    Equipamentos:</label>
+                                <input type="text" class="form-control" name="mat_equip2" id="exampleFormControlInput1"
+                                    placeholder="Digite aqui...">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+@endsection

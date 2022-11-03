@@ -52,7 +52,7 @@
     <div class="container-fluid">
         <div>
             <div style="float: left">
-                <img src="{{ public_path('/img/Logo_transparente.png') }}" style="width: 160px; height: 60px" />
+                
             </div>
             <div>
                 <h5>GOVERNO DO DISTRITO FEDERAL</h5>
@@ -81,16 +81,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($placa as $pla)
+            @foreach ($cadastro as $cadas)
+                <tr>
+                    <th>{{ $cadas->placas->placa }}</th>
+                    <th>{{ $cadas->created_at->format('d/m/Y') }}</th>
+                </tr>
+            @endforeach
+
+            {{--@foreach ($placa as $pla)
                 <tr>
                     <th>{{ $pla->placas->placa }}</th>
                     <th>{{ $pla->created_at->format('d/m/Y') }}</th>
                 </tr>
-            @endforeach
-
+            @endforeach--}}
         </tbody>
 
 
     </table>
-
+<h1>{{--dd($cadastro)--}}</h1>
 </body>
