@@ -95,7 +95,7 @@ class HistoricoController extends Controller
         //$cadastro->mat_equip2 = $request->input('mat_equip2');
         //$cadastro->save();
 
-        $cadastro = Cadastro::findOrFail($id);
+        //$cadastro = Cadastro::findOrFail($id);
        
         
           //$cadastro-> update([
@@ -104,9 +104,13 @@ class HistoricoController extends Controller
         //]);
 
 
+        //$cadastro->mat_equip2 = $request->input('mat_equip2');
+
+
+        //$cadastro->save();
+
+        $cadastro = Cadastro::find($request->id);
         $cadastro->mat_equip2 = $request->input('mat_equip2');
-
-
         $cadastro->save();
 
         return redirect()->route('historico')->with('msg','Salvo com sucesso!');

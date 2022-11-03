@@ -5,7 +5,7 @@
     <br><br>
     <script>
         function chamaId(id) {
-            var id;
+            var id ;
 
             event.preventDefault();
 
@@ -15,6 +15,8 @@
 
 
         }
+
+        
         /*$('.update').on('click', function chamaId(id){
             //var id ;
             var id    = button.data('id')
@@ -101,7 +103,7 @@
                                       </button></td>--}}
 
                                     <td colspan="1">
-                                        <div>
+                                        <div id="botao">
                                             <button type="button" class="btn btn-success update" data-bs-toggle="modal"
                                                 data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
                                                 onClick="chamaId(id)" id="{{ $cadas->id }}">
@@ -141,9 +143,9 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <input type="text" id="materialteste" value="{{$cadas->id}}"
-                                            name="id_caminhao">
-                                            <p>{{$cadas->id}}</p>
+                                        <input type="text" id="materialteste" value="{{$cadas['id']}}"
+                                            name="id">
+                                            
 
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Materiais |
