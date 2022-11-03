@@ -5,7 +5,7 @@
     <br><br>
     <script>
         function chamaId(id) {
-            var id ;
+            var id = $(this).attr('data-id');
 
             event.preventDefault();
 
