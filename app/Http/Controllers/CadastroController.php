@@ -97,12 +97,16 @@ class CadastroController extends Controller
      */
     public function update(Request $request, $solicitacao)
     {
-        $solicitacao = Visitante::findOrFail($solicitacao);
+        /*$solicitacao = Visitante::findOrFail($solicitacao);
         
         $solicitacao-> update([
             'id_visitante' => $request -> id_visitante,
             'mat_equip2' => $request -> mat_equip2,
         ]);
+        $solicitacao->save();*/
+
+        $solicitacao = Visitante::findOrFail($request->id);
+        $solicitacao->mat_equip2 = $request->input('mat_equip2');
         $solicitacao->save();
 
         return redirect()->route('visitante')->with('msg','Salvo com sucesso!');

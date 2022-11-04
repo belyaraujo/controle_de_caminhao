@@ -4,13 +4,22 @@
 
     <br><br>
     <script>
-        function chamaId(id) {
-            var id;
+         /*function chamaId(id) {
+            var id ;
 
             event.preventDefault();
 
-            id = document.getElementById('materialteste').value = id;
-        }
+            document.getElementById('materialteste').value = id;
+
+            $('#EditModal').modal('show');
+
+
+        }*/
+
+      
+
+        
+
     </script>
 
 
@@ -74,11 +83,15 @@
                                     <td value="{{ $solic->id }}">{{ $solic->created_at->format('d/m/Y H:i') }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->updated_at->format('d/m/Y H:i') ?? '-' }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->mat_equip2 }}</td>
-                                    <td><button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#createModal" data-id="{{ $solic->id }}"
-                                            onClick="chamaId(id)" id="{{ $solic->id }}">
-                                            Salvar
-                                        </button></td>
+                                    <td colspan="1">
+                                        <div id="submitButton">
+                                            <button input type="button" class="btn btn-success update" data-bs-toggle="modal"
+                                                data-bs-target="#EditModal" data-id="{{ $solic->id }}"
+                                                onClick="chamaId(id)" id="{{ $solic->id }}">
+                                                Salvar
+                                            </button>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -88,11 +101,11 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('atualizar2', $solic->id) }}" method="POST">
+        <form onSubmit="return onSubmit()" action="{{ route('atualizar2', $solic->id) }}" method="POST">
             <br>
             @csrf
 
-            <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -101,7 +114,8 @@
                         </div>
                         <div class="modal-body">
 
-                            <input type="text" id="materialteste" value="" name="id_visitante">
+                            <input type="text" id="materialteste" value="{{$solic['id']}}"
+                                            name="id">
 
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Materiais |
