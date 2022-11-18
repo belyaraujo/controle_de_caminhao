@@ -13,11 +13,11 @@
     <div class="container">
         <div class="mh-100" style="width: 1000px; height: 1000px;">
             <div class="card border-dark" style="max-width: 700rem;">
-                <div class="card-header text-white" style="background-color: #044f84;">Emissão de relatório
+                <div class="card-header text-white" style="background-color: #044f84;">Emissão de relatório - Novacap
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav justify-content-end">
-                              <a type="button" class="btn btn-primary" href="/relatorio">Novacap</a>
+                              <a type="button" class="btn btn-primary" style="margin: 0 15px;"href="/relatorio">Novacap</a>
                             </li>
                             <li class="nav justify-content-end">
                                 <a type="button" class="btn btn-primary" href="/relatorio/visitante">Visitante</a>

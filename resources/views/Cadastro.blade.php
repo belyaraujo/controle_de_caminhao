@@ -125,7 +125,6 @@
                                     <a class="btn btn-outline-danger me-md-2" href="{{ route('historico') }}"
                                         role="button"style="margin: 0 15px;">Cancelar Cadastro</a>
                                     <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
-
                                 </div>
                             </div>
                     </div>
