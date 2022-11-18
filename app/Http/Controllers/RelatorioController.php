@@ -38,10 +38,10 @@ public function Docs(Request $request){
   $datainicial = $request->input('datainicial');
   $datafinal = $request->input('datafinal');
 
-//PDF
+       //PDF
 
-  if($option==1){
-    $cadastro= Cadastro::where('id_placa', $id_placa)
+  if($option == 1){
+    $cadastro = Cadastro::where('id_placa', $id_placa)
     ->whereBetween('created_at', [$datainicial . ' 00:00:00', $datafinal . ' 23:59:59'])->get();
 
     $relatorio = [
@@ -57,17 +57,13 @@ public function Docs(Request $request){
 
      //XLS
 
-if($option==2){
-
+if($option == 2){
   return Excel::download(new RelatorioExport($id_placa, $datainicial, $datafinal), 'relatorio.xlsx');
-
-
 }
 
+     //CVS
+
 if ($option == 3) {
-
-  //CVS
-
   return Excel::download(new RelatorioExport($id_placa, $datainicial, $datafinal), 'relatorio.csv');
 }
 

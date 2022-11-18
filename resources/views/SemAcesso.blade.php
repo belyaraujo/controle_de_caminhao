@@ -1,52 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-  /* Style the input field */
-  #myInput {
-    padding: 20px;
-    margin-top: -6px;
-    border: 0;
-    border-radius: 0;
-    background: #f1f1f1;
-  }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".dropdown-menu li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Style the input field */
+        #myInput {
+            padding: 20px;
+            margin-top: -6px;
+            border: 0;
+            border-radius: 0;
+            background: #f1f1f1;
+        }
+    </style>
+
 </head>
+
 <body>
 
-<div class="container">
-  <h2>Filterable Dropdown</h2>
-  <p>Open the dropdown menu and type something in the input field to search for dropdown items:</p>
-  <p>Note that we have styled the input field to fit the dropdown items.</p>
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <input class="form-control" id="myInput" type="text" placeholder="Search..">
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-      <li><a href="#">JavaScript</a></li>
-      <li><a href="#">jQuery</a></li>
-      <li><a href="#">Bootstrap</a></li>
-      <li><a href="#">Angular</a></li>
-    </ul>
-  </div>
-</div>
 
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $(".dropdown-menu li").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
 
+    @extends('layouts.main')
+    @section('title', 'Novacap - Cadastro')
+    @section('content')
+
+    <div class="container">
+      <br><br><br>
+      <div class="alert alert-danger" role="alert">
+        Você não tem permissão nessa página!
+      </div>
+<br><br><br>
+      <div class="d-grid gap-2 col-2 mx-auto">
+        <a type="button" class="btn btn-primary me-md-2" href="{{ route('cadastro') }}">Voltar</a>
+        
+      </div>
+    </div>
+    @endsection
 </body>
-</html>

@@ -16,7 +16,20 @@
 
         }*/
 
-      
+        function chamaId(id) {
+            var id ;
+
+            event.preventDefault();
+
+            document.getElementById('materialteste').value = id;
+            document.getElementById('materialteste').submit();
+
+           // document.getElementById("mySubmit").disabled = true;
+
+            $('#EditModal').modal('show');
+
+            
+};
 
         
 
@@ -84,14 +97,16 @@
                                     <td value="{{ $solic->id }}">{{ $solic->updated_at->format('d/m/Y H:i') ?? '-' }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->mat_equip2 }}</td>
                                     <td colspan="1">
-                                        <div id="submitButton">
-                                            <button input type="button" class="btn btn-success update" data-bs-toggle="modal"
-                                                data-bs-target="#EditModal" data-id="{{ $solic->id }}"
-                                                onClick="chamaId(id)" id="{{ $solic->id }}">
-                                                Salvar
-                                            </button>
-                                        </div>
+                                        @if ($solic->ativo === "1")
+                                        <button type="button" class="btn btn-success update" data-bs-toggle="modal"
+                                    data-bs-target="#EditModal" data-id="{{ $solic->id }}"
+                                    onClick="chamaId(id)" id="{{ $solic->id }}">
+                                        Salvar
+                                        </button>
+                                        @else
+                                    <button type="button" class="btn btn-success" disabled> Salvar </button>
                                     </td>
+                                    @endif
                                 </tr>
                             @endforeach
 

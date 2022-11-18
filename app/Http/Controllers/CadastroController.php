@@ -43,7 +43,7 @@ class CadastroController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'required|max:7|min:7',
+            'placa' => 'required|max:7',
             'nome' => 'required',
             'mat_equip' => 'required',
             
@@ -107,7 +107,8 @@ class CadastroController extends Controller
 
         $solicitacao = Visitante::findOrFail($request->id);
         $solicitacao->mat_equip2 = $request->input('mat_equip2');
-        $solicitacao->save();
+        $solicitacao->ativo = 0;
+        $solicitacao->update();
 
         return redirect()->route('visitante')->with('msg','Salvo com sucesso!');
     }

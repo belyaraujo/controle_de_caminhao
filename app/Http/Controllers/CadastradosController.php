@@ -54,7 +54,7 @@ class CadastradosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_placa' => 'required|max:7|min:7',
+            'id_placa' => 'required|max:7',
             'mat_equip' => 'required',
         ]);
 

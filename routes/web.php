@@ -94,7 +94,7 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/testando', function () {
+Route::get('/acesso', function () {
     return view('SemAcesso');
 });
 

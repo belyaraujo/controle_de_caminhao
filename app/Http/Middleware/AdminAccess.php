@@ -26,7 +26,7 @@ class AdminAccess
                 return redirect('/login');
             }
 
-            dd("SEM ACESSO");
+            return redirect('/acesso');
         }
         
     }

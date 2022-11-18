@@ -10,11 +10,22 @@
             event.preventDefault();
 
             document.getElementById('materialteste').value = id;
+            document.getElementById('materialteste').submit();
+
+           // document.getElementById("mySubmit").disabled = true;
 
             $('#EditModal').modal('show');
 
+            
+};
 
-        }
+/*$('.btn-enviar-lembrete').on('click', function(event) {
+    event.preventDefault();
+	$(this).prop({
+  	disabled: true,
+    innerHTML: 'Aguarde...'
+  });
+});
 
         
         /*$('.update').on('click', function chamaId(id){
@@ -101,12 +112,26 @@
                                       onClick="document.getElementById('materialteste').value= {{$cadas->id}}">
                                         Salvar
                                       </button></td>--}}
-
+                                      
                                     <td colspan="1">
-                                        <div id="botao">
+                                        @if ($cadas->ativo === "1")
+                                        <button type="button" class="btn btn-success update" data-bs-toggle="modal"
+                                    data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
+                                    onClick="chamaId(id)" id="{{ $cadas->id }}">
+                                        Salvar
+                                        </button>
+                                        @else
+                                    <button type="button" class="btn btn-success" disabled> Salvar </button>
+                                    </td>
+                                    @endif
+
+                                    {{--Botão certo embaixo--}}
+
+                                    {{--<td colspan="1">
+                                        <div >
                                             <button type="button" class="btn btn-success update" data-bs-toggle="modal"
                                                 data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
-                                                onClick="chamaId(id)" id="{{ $cadas->id }}">
+                                                onClick="chamaId(id)" id="{{ $cadas->id }}" >
                                                 Salvar
                                             </button>
                                         </div>
@@ -144,7 +169,7 @@
                                     <div class="modal-body">
 
                                         <input type="text" id="materialteste" value="{{$cadas['id']}}"
-                                            name="id">
+                                            name="id" hidden>
                                             
 
                                         <div class="mb-3">
@@ -157,7 +182,8 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger"
                                             data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                                        <button type="submit" class="btn btn-outline-primary" 
+                                        onclick="this.disabled=true;this.value='Enviando, aguarde...';this.form.submit();">Salvar</button>
                                     </div>
                                 </div>
                             </div>
