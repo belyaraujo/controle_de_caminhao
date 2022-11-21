@@ -17,16 +17,18 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav justify-content-end">
-                              <a type="button" class="btn btn-primary" style="margin: 0 15px;"href="/relatorio">Novacap</a>
+                                <a type="button" class="btn btn-primary"
+                                    style="margin: 0 15px;"href="{{ route('relatorio') }}">Novacap</a>
                             </li>
                             <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary" href="/relatorio/visitante">Visitante</a>
-                              </li>
-    
-                    </ul> 
+                                <a type="button" class="btn btn-primary"
+                                    href="{{ route('relatorio.visitante') }}">Visitante</a>
+                            </li>
+
+                        </ul>
                     </div>
                 </div>
-                
+
                 <div class="card-body text-dark">
                     <p class="card-text">
 
@@ -39,9 +41,9 @@
                                 <option>Selecione uma placa</option>
 
                                 @foreach ($placa as $placa)
-                                <option value="{{ $placa->id }}">{{ $placa->placa }}
-                                </option>
-                            @endforeach
+                                    <option value="{{ $placa->id }}">{{ $placa->placa }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                         <br>
@@ -77,7 +79,7 @@
                             </div>
 
                         </div>
-                        <br> 
+                        <br>
                         <!--Documentos-->
                         <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Documento:</label>
                         <div class="form-group">

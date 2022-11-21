@@ -10,40 +10,48 @@
         * {
             font-family: 'Barlow', sans-serif;
         }
+
         h2 {
             font-family: 'Barlow', sans-serif;
             padding-top: 40px !important;
             padding-bottom: 25px !important;
             text-align: center;
         }
+
         h5 {
             font-family: 'Barlow', sans-serif;
             margin-top: 10px;
             margin-right: 0px;
             text-align: center;
         }
+
         a {
             color: white;
             text-decoration: none;
         }
+
         #logo {
             margin-top: 10px;
             margin-left: 10px;
         }
+
         tr.cab th {
             background-color: #a8daf2;
             font-weight: lighter;
             padding: 5px;
         }
+
         table.exe4 {
             border-collapse: collapse;
             width: 100%;
             font-weight: lighter;
         }
+
         table.exe4 tr:nth-child(even) {
             background-color: #EBF0FA;
             font-weight: lighter;
         }
+
         table.exe4 tr:nth-child(odd) {
             background-color: #bfbebe;
             font-weight: lighter;
@@ -52,7 +60,7 @@
     <div class="container-fluid">
         <div>
             <div style="float: left">
-                
+
             </div>
             <div>
                 <h5>GOVERNO DO DISTRITO FEDERAL</h5>
@@ -81,22 +89,20 @@
             </tr>
         </thead>
         <tbody>
-           @foreach ($solicitacao as $solic)
-            <tr>
-                <th>{{ $solic->placa}}</th>
-                <th>{{ $solic->created_at->format('d/m/Y') }}</th>
-            </tr>
-    @endforeach
-    {{--@foreach($visitante as $vis)
+            @foreach ($solicitacao as $solic)
+                <tr>
+                    <th>{{ $solic->placa }}</th>
+                    <th>{{ $solic->created_at->format('d/m/Y') }}</th>
+                </tr>
+            @endforeach
+            {{-- @foreach ($visitante as $vis)
     <tr>
         <th>{{$vis->placa}}</th>
         <th>{{$vis->created_at->format('d/m/Y')}}</th>
     </tr>
-@endforeach--}}
+@endforeach --}}
 
         </tbody>
-
-
     </table>
 
 </body>

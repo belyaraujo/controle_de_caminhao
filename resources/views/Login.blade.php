@@ -48,50 +48,50 @@
     <br>
     <br>
     <br>
-    <br> 
+    <br>
     <div class="container">
         @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="mh-100" style="width: 1000px; height: 1000px;">
             <div class="card border-dark" style="max-width: 700rem;">
                 <div class="card-header text-white" style="background-color: #044f84;">Login</div>
                 <div class="card-body text-dark">
                     <p class="card-text">
-             <form action="{{route('login.entrar')}}" method="POST">
-@csrf
+                    <form action="{{ route('login.entrar') }}" method="POST">
+                        @csrf
                         <div class="mb-3 row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Usuário:</label>
                             <div class="col-sm-10">
-                              <input type= "email" name= "email"class="form-control" id="staticEmail">
+                                <input type="email" name="email" class="form-control" id="staticEmail">
                             </div>
-                          </div>
-                          <br>
-                          <div class="mb-3 row">
+                        </div>
+                        <br>
+                        <div class="mb-3 row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Senha:</label>
                             <div class="col-sm-10">
-                              <input type="password" name= "password" class="form-control" id="inputPassword">
+                                <input type="password" name="password" class="form-control" id="inputPassword">
                             </div>
                             <br><br><br><br>
 
                             <div class="container">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button type="submit" class="btn btn-outline-primary">Entrar</button>
-    
-                                </div>
-                          </div>
 
-                        </form>
-                    </div>
+                                </div>
+                            </div>
+
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     @yield('content')
 
 </body>

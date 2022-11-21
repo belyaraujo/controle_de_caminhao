@@ -4,35 +4,32 @@
 
     <br><br>
     <script>
-         /*function chamaId(id) {
-            var id ;
+        /*function chamaId(id) {
+                    var id ;
 
-            event.preventDefault();
+                    event.preventDefault();
 
-            document.getElementById('materialteste').value = id;
+                    document.getElementById('materialteste').value = id;
 
-            $('#EditModal').modal('show');
+                    $('#EditModal').modal('show');
 
 
-        }*/
+                }*/
 
         function chamaId(id) {
-            var id ;
+            var id;
 
             event.preventDefault();
 
             document.getElementById('materialteste').value = id;
             document.getElementById('materialteste').submit();
 
-           // document.getElementById("mySubmit").disabled = true;
+            // document.getElementById("mySubmit").disabled = true;
 
             $('#EditModal').modal('show');
 
-            
-};
 
-        
-
+        };
     </script>
 
 
@@ -59,10 +56,11 @@
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav justify-content-end">
 
-                                <a type="button" class="btn btn-primary" style="margin: 0 15px;" href="/historico">Novacap</a>
+                                <a type="button" class="btn btn-primary" style="margin: 0 15px;"
+                                    href="{{ route('historico') }}">Novacap</a>
                             </li>
                             <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary" href="/historico/visitante">Visitante</a>
+                                <a type="button" class="btn btn-primary" href="{{ route('visitante') }}">Visitante</a>
                             </li>
                         </ul>
                     </div>
@@ -94,20 +92,21 @@
                                     <td value="{{ $solic->id }}">{{ $solic->nome }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->mat_equip }}</td>
                                     <td value="{{ $solic->id }}">{{ $solic->created_at->format('d/m/Y H:i') }}</td>
-                                    <td value="{{ $solic->id }}">{{ $solic->updated_at->format('d/m/Y H:i') ?? '-' }}</td>
+                                    <td value="{{ $solic->id }}">{{ $solic->updated_at->format('d/m/Y H:i') ?? '-' }}
+                                    </td>
                                     <td value="{{ $solic->id }}">{{ $solic->mat_equip2 }}</td>
                                     <td colspan="1">
-                                        @if ($solic->ativo === "1")
-                                        <button type="button" class="btn btn-success update" data-bs-toggle="modal"
-                                    data-bs-target="#EditModal" data-id="{{ $solic->id }}"
-                                    onClick="chamaId(id)" id="{{ $solic->id }}">
-                                        Salvar
-                                        </button>
+                                        @if ($solic->ativo === '1')
+                                            <button type="button" class="btn btn-success update" data-bs-toggle="modal"
+                                                data-bs-target="#EditModal" data-id="{{ $solic->id }}"
+                                                onClick="chamaId(id)" id="{{ $solic->id }}">
+                                                Salvar
+                                            </button>
                                         @else
-                                    <button type="button" class="btn btn-success" disabled> Salvar </button>
+                                            <button type="button" class="btn btn-success" disabled> Salvar </button>
                                     </td>
-                                    @endif
-                                </tr>
+                            @endif
+                            </tr>
                             @endforeach
 
                         </tbody>
@@ -129,8 +128,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <input type="text" id="materialteste" value="{{$solic['id']}}"
-                                            name="id">
+                            <input type="text" id="materialteste" value="{{ $solic['id'] }}" name="id">
 
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Materiais |

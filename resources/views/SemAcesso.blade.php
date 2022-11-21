@@ -36,7 +36,7 @@
 
 
     @extends('layouts.main')
-    @section('title', 'Novacap - Cadastro')
+    @section('title', 'Novacap - Relatorio')
     @section('content')
 
     <div class="container">

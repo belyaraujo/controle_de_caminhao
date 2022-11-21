@@ -36,7 +36,7 @@
 
 
     @extends('layouts.main')
-    @section('title', 'Novacap - Cadastro')
+    @section('title', 'Novacap - Controle')
     @section('content')
         <style>
             input.exampleCheck1 {
@@ -65,20 +65,17 @@
                         <form action="{{ route('cadastrados') }}" method="POST">
                             <br>
                             @csrf
-
                             <div class="form-group">
                                 <label for="colFormLabelLg"
                                     class="col-sm-2 col-form-label col-form-label-lg">Placas:</label>
-                                    <select class="form-control" name="id_placa" id="id_placa">
-                                        <option>Selecione uma placa</option>
-                                        @foreach ($placa as $placa)
-                                            <option value="{{ $placa->id }}">{{ $placa->placa }}
-                                            </option>
-                                        @endforeach
+                                <select class="form-control" name="id_placa" id="id_placa">
+                                    <option>Selecione uma placa</option>
 
-                                    </select>
-        
+                                    @foreach ($placa as $placa)
+                                        <option value="{{ $placa->id }}">{{ $placa->placa }}</option>
+                                    @endforeach
 
+                                </select>
                             </div>
                             <br>
                             <br>
@@ -133,9 +130,6 @@
                 </div>
             </div>
         </div>
-
-
-
     @endsection
 
 

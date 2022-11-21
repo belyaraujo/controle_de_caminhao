@@ -17,10 +17,10 @@
                         class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary"style="margin: 0 15px;" href="/relatorio">Novacap</a>
+                                <a type="button" class="btn btn-primary"style="margin: 0 15px;" href="{{ route('relatorio') }}">Novacap</a>
                             </li>
                             <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary" href="/relatorio/visitante">Visitante</a>
+                                <a type="button" class="btn btn-primary" href="{{ route('relatorio.visitante') }}">Visitante</a>
                             </li>
 
                         </ul>

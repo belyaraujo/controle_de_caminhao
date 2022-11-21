@@ -5,47 +5,45 @@
     <br><br>
     <script>
         function chamaId(id) {
-            var id ;
+            var id;
 
             event.preventDefault();
 
             document.getElementById('materialteste').value = id;
             document.getElementById('materialteste').submit();
 
-           // document.getElementById("mySubmit").disabled = true;
+            // document.getElementById("mySubmit").disabled = true;
 
             $('#EditModal').modal('show');
 
-            
-};
 
-/*$('.btn-enviar-lembrete').on('click', function(event) {
-    event.preventDefault();
-	$(this).prop({
-  	disabled: true,
-    innerHTML: 'Aguarde...'
-  });
-});
+        };
 
-        
-        /*$('.update').on('click', function chamaId(id){
-            //var id ;
-            var id    = button.data('id')
-            var modal = $(this)modal.find('#id').val(id);
+        /*$('.btn-enviar-lembrete').on('click', function(event) {
+            event.preventDefault();
+        	$(this).prop({
+          	disabled: true,
+            innerHTML: 'Aguarde...'
+          });
+        });
 
-
-      $('#EditModal').modal('show'); // modal aparece
-});*/
-
-/*$(document).on("click", function chamaId(id) {
-        var id = $(this).attr('data-id');
-        event.preventDefault();
-
-            document.getElementById('materialteste').value = id
-        $('#EditModal').modal('show').val(meuid);
-    });*/
+                
+                /*$('.update').on('click', function chamaId(id){
+                    //var id ;
+                    var id    = button.data('id')
+                    var modal = $(this)modal.find('#id').val(id);
 
 
+              $('#EditModal').modal('show'); // modal aparece
+        });*/
+
+        /*$(document).on("click", function chamaId(id) {
+                var id = $(this).attr('data-id');
+                event.preventDefault();
+
+                    document.getElementById('materialteste').value = id
+                $('#EditModal').modal('show').val(meuid);
+            });*/
     </script>
 
 
@@ -70,14 +68,15 @@
         <div class="mh-100" style="width: 1200px; height: 1000px;">
             <div class="card border-dark" style="max-width: 700rem;">
                 <div class="card-header text-white" style="background-color: #044f84;">Novacap
-                    
+
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary me-md-2" style="margin: 0 15px;" href="/historico">Novacap</a>
+                                <a type="button" class="btn btn-primary me-md-2" style="margin: 0 15px;"
+                                    href="{{ route('historico') }}">Novacap</a>
                             </li>
                             <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary" href="/historico/visitante">Visitante</a>
+                                <a type="button" class="btn btn-primary" href="{{ route('visitante') }}">Visitante</a>
                             </li>
 
                         </ul>
@@ -109,26 +108,26 @@
                                     </td>
                                     <td value="{{ $cadas->id }}">{{ $cadas->mat_equip2 }}</td>
 
-                                    {{--<td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#EditModal"
+                                    {{-- <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#EditModal"
                                       onClick="document.getElementById('materialteste').value= {{$cadas->id}}">
                                         Salvar
-                                      </button></td>--}}
-                                      
+                                      </button></td> --}}
+
                                     <td colspan="1">
-                                        @if ($cadas->ativo === "1")
-                                        <button type="button" class="btn btn-success update" data-bs-toggle="modal"
-                                    data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
-                                    onClick="chamaId(id)" id="{{ $cadas->id }}">
-                                        Salvar
-                                        </button>
+                                        @if ($cadas->ativo === '1')
+                                            <button type="button" class="btn btn-success update" data-bs-toggle="modal"
+                                                data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
+                                                onClick="chamaId(id)" id="{{ $cadas->id }}">
+                                                Salvar
+                                            </button>
                                         @else
-                                    <button type="button" class="btn btn-success" disabled> Salvar </button>
+                                            <button type="button" class="btn btn-success" disabled> Salvar </button>
                                     </td>
-                                    @endif
+                            @endif
 
-                                    {{--Botão certo embaixo--}}
+                            {{-- Botão certo embaixo --}}
 
-                                    {{--<td colspan="1">
+                            {{-- <td colspan="1">
                                         <div >
                                             <button type="button" class="btn btn-success update" data-bs-toggle="modal"
                                                 data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
@@ -138,7 +137,7 @@
                                         </div>
                                     </td>
 
-                                    {{--<td colspan="1">
+                                    {{-- <td colspan="1">
                                         <div id="yourFormId" name = "yourFormId" class = "submitBtn">
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                                 data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
@@ -146,9 +145,9 @@
                                                 Salvar
                                             </button>
                                         </div>
-                                    </td>--}}
+                                    </td> --}}
 
-                                </tr>
+                            </tr>
                             @endforeach
 
                         </tbody>
@@ -169,9 +168,9 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <input type="text" id="materialteste" value="{{$cadas['id']}}"
-                                            name="id" hidden>
-                                            
+                                        <input type="text" id="materialteste" value="{{ $cadas['id'] }}" name="id"
+                                            hidden>
+
 
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Materiais |
@@ -183,8 +182,8 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger"
                                             data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="submit" class="btn btn-outline-primary" 
-                                        onclick="this.disabled=true;this.value='Enviando, aguarde...';this.form.submit();">Salvar</button>
+                                        <button type="submit" class="btn btn-outline-primary"
+                                            onclick="this.disabled=true;this.value='Enviando, aguarde...';this.form.submit();">Salvar</button>
                                     </div>
                                 </div>
                             </div>
