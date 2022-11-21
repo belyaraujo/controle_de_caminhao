@@ -26,8 +26,11 @@ class Relatorio2Export implements WithMapping, WithHeadings, Fromquery, WithCust
 
     public function query(){
 
-  $solicitacao = Visitante::where('placa', $this->placa)
-  ->wherebetween('created_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59']);
+        $solicitacao = Visitante::where('placa', $this->placa)
+            ->wherebetween('created_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59']);
+
+        $solicitacao = Visitante::where('placa', $this->placa)
+            ->wherebetween('updated_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59']);
 
   return $solicitacao;
 
@@ -38,7 +41,8 @@ class Relatorio2Export implements WithMapping, WithHeadings, Fromquery, WithCust
 
         return [
             $solicitacao->placa,
-            $solicitacao->created_at->format('d/m/Y'),
+            $solicitacao->created_at->format('d/m/Y - H:i'),
+            $solicitacao->updated_at->format('d/m/Y - H:i'),
         ];
 
 
@@ -47,7 +51,8 @@ class Relatorio2Export implements WithMapping, WithHeadings, Fromquery, WithCust
     {
         return [
             'Placa',
-            'Data',
+            'Entrada',
+            'Saída'
         ];
     }
 

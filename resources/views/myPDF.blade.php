@@ -85,14 +85,16 @@
         <thead style="background-color: 	#E1F5FE;">
             <tr class="cab">
                 <th style="border-style:solid;">Placa</th>
-                <th style="border-style:solid;">Data</th>
+                <th style="border-style:solid;">Entrada</th>
+                <th style="border-style:solid;">Saída</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($cadastro as $cadas)
                 <tr>
                     <th>{{ $cadas->placas->placa }}</th>
-                    <th>{{ $cadas->created_at->format('d/m/Y') }}</th>
+                    <th>{{ $cadas->created_at->format('d/m/Y - H:i') }}</th>
+                    <th>{{ $cadas->updated_at->format('d/m/Y - H:i') }}</th>
                 </tr>
             @endforeach
 

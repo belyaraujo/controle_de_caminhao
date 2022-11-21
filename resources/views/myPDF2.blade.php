@@ -85,14 +85,16 @@
         <thead style="background-color: 	#E1F5FE;">
             <tr class="cab">
                 <th style="border-style:solid;">Placa</th>
-                <th style="border-style:solid;">Data</th>
+                <th style="border-style:solid;">Entrada</th>
+                <th style="border-style:solid;">Saída</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($solicitacao as $solic)
                 <tr>
                     <th>{{ $solic->placa }}</th>
-                    <th>{{ $solic->created_at->format('d/m/Y') }}</th>
+                    <th>{{ $solic->created_at->format('d/m/Y - H:i') }}</th>
+                    <th>{{ $solic->updated_at->format('d/m/Y - H:i') }}</th>
                 </tr>
             @endforeach
             {{-- @foreach ($visitante as $vis)

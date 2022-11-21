@@ -31,6 +31,9 @@ class RelatorioExport implements WithMapping, WithHeadings, Fromquery, WithCusto
           $cadastro = Cadastro::with('placas')->where('id_placa', $this->id_placa)
           ->whereBetween('created_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59']);
 
+          $cadastro = Cadastro::with('placas')->where('id_placa', $this->id_placa)
+          ->whereBetween('updated_at', [$this->datainicial . ' 00:00:00', $this->datafinal . ' 23:59:59']);
+
           return $cadastro;
 
     }
@@ -39,7 +42,8 @@ class RelatorioExport implements WithMapping, WithHeadings, Fromquery, WithCusto
     {
         return [
             $cadastro->placas->placa, 
-            $cadastro->created_at->format('d/m/Y'),
+            $cadastro->created_at->format('d/m/Y - H:i'),
+            $cadastro->updated_at->format('d/m/Y - H:i'),
         ];
     }
 
@@ -48,7 +52,9 @@ class RelatorioExport implements WithMapping, WithHeadings, Fromquery, WithCusto
     {
         return [
             'Placa',
-            'Data',
+            'Saída',
+            'Entrada'
+            
         ];
     }
 
