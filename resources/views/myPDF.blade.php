@@ -85,8 +85,8 @@
         <thead style="background-color: 	#E1F5FE;">
             <tr class="cab">
                 <th style="border-style:solid;">Placa</th>
-                <th style="border-style:solid;">Entrada</th>
                 <th style="border-style:solid;">Saída</th>
+                <th style="border-style:solid;">Entrada</th>
             </tr>
         </thead>
         <tbody>

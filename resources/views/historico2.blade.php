@@ -128,7 +128,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <input type="text" id="materialteste" value="{{ $solic['id'] }}" name="id">
+                            <input type="text" id="materialteste" value="{{ $solic['id'] }}" name="id" hidden>
 
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Materiais |

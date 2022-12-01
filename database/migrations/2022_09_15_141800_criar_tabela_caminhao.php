@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('caminhao', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('id_placa')->constrained('placas', 'id'); 
+            $table->foreignId('id_placa')->constrained('placas', 'id');
             $table->string('mat_equip');
             $table->string('mat_equip2')->default('');
             $table->string('ativo')->default('1');
