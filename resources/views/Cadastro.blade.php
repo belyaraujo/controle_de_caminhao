@@ -54,7 +54,7 @@
         <div class="container">
             <div class="mh-100" style="width: 1000px; height: 1000px;">
                 <div class="card border-dark" style="max-width: 700rem;">
-                    <div class="card-header text-white" style="background-color: #044f84;">Controle</div>
+                    <div class="card-header text-white" style="background-color: #044f84;">Controle de caminhões da Novacap</div>
 
                     <div class="card-body text-dark">
                         <p class="card-text">

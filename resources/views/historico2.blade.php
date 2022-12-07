@@ -40,27 +40,29 @@
         <a class="btn btn-outline-primary" href="{{ route('solicitacao') }}" role="button">NOVO CADASTRO</a>
         <br><br>
 
+        
         @if (session('msg'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success" role="alert" style="width: 1200px">
                 <p class="msg">
                     {{ session('msg') }}
                 </p>
             </div>
         @endif
-
+    
         {{-- dd($solicitacao) --}}
         <div class="mh-100" style="width: 1200px; height: 1000px;">
             <div class="card border-dark" style="max-width: 700rem;">
-                <div class="card-header text-white" style="background-color: #044f84;">Visitantes
+                <div class="card-header text-white" style="background-color: #044f84;">Histórico - Visitantes
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav justify-content-end">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
 
-                                <a type="button" class="btn btn-primary" style="margin: 0 15px;"
+                                <a type="button" class="nav-link active" style="margin:-32px 5px; "
                                     href="{{ route('historico') }}">Novacap</a>
                             </li>
-                            <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary" href="{{ route('visitante') }}">Visitante</a>
+                            <li class="nav-item">
+                                <a type="button" class="nav-link active" style="margin:-32px 5px; "
+                                href="{{ route('visitante') }}">Visitante</a>
                             </li>
                         </ul>
                     </div>
@@ -95,7 +97,7 @@
                                     <td value="{{ $solic->id }}">{{ $solic->updated_at->format('d/m/Y H:i') ?? '-' }}
                                     </td>
                                     <td value="{{ $solic->id }}">{{ $solic->mat_equip2 }}</td>
-                                    <td colspan="1">
+                                    <td colspan="1" align="center">
                                         @if ($solic->ativo === '1')
                                             <button type="button" class="btn btn-success update" data-bs-toggle="modal"
                                                 data-bs-target="#EditModal" data-id="{{ $solic->id }}"
@@ -111,6 +113,10 @@
 
                         </tbody>
                     </table>
+
+                    <div>
+                        {{$solicitacao->links()}}
+                    </div>
                     </p>
                 </div>
             </div>

@@ -63,7 +63,7 @@ class CadastroController extends Controller
      */
     public function show(Request $request)
     {
-        $solicitacao = Visitante::get();
+        $solicitacao = Visitante::paginate(7);
 
         return view('historico2', ['solicitacao' => $solicitacao]);
     }

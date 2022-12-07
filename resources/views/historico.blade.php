@@ -56,7 +56,7 @@
         <br><br>
 
         @if (session('msg'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success" role="alert" style="width: 1200px">
                 <p class="msg">
                     {{ session('msg') }}
                 </p>
@@ -67,16 +67,17 @@
         {{-- dd($solicitacao) --}}
         <div class="mh-100" style="width: 1200px; height: 1000px;">
             <div class="card border-dark" style="max-width: 700rem;">
-                <div class="card-header text-white" style="background-color: #044f84;">Novacap
+                <div class="card-header text-white" style="background-color: #044f84;">Histórico - Novacap
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary me-md-2" style="margin: 0 15px;"
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item ">
+                                <a type="button" class="nav-link active " style="margin:-32px 5px; background-color: #044f84; "
                                     href="{{ route('historico') }}">Novacap</a>
                             </li>
-                            <li class="nav justify-content-end">
-                                <a type="button" class="btn btn-primary" href="{{ route('visitante') }}">Visitante</a>
+                            <li class="nav-item ">
+                                <a type="button" class="nav-link active " style="margin:-32px 8px;background-color: #044f84;"
+                                href="{{ route('visitante') }}">Visitante</a>
                             </li>
 
                         </ul>
@@ -113,7 +114,7 @@
                                         Salvar
                                       </button></td> --}}
 
-                                    <td colspan="1">
+                                    <td colspan="1" align="center">
                                         @if ($cadas->ativo === '1')
                                             <button type="button" class="btn btn-success update" data-bs-toggle="modal"
                                                 data-bs-target="#EditModal" data-id="{{ $cadas->id }}"
@@ -152,6 +153,10 @@
 
                         </tbody>
                     </table>
+<div>
+    {{$cadastro->links()}}
+</div>
+
                     </p>
 
                     <form action="{{ route('atualizar', $cadas->id) }}" method="POST">
@@ -189,5 +194,7 @@
                             </div>
                         </div>
                     </form>
+
+                  
                 </div>
             @endsection
