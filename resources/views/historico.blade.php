@@ -72,11 +72,11 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item ">
-                                <a type="button" class="nav-link active " style="margin:-32px 5px; background-color: #044f84; "
+                                <a type="button" class="nav-link active " style="margin:-32px 5px; background-color: #053456; "
                                     href="{{ route('historico') }}">Novacap</a>
                             </li>
                             <li class="nav-item ">
-                                <a type="button" class="nav-link active " style="margin:-32px 8px;background-color: #044f84;"
+                                <a type="button" class="nav-link active " style="margin:-32px 8px;background-color: #053456;"
                                 href="{{ route('visitante') }}">Visitante</a>
                             </li>
 
@@ -154,7 +154,7 @@
                         </tbody>
                     </table>
 <div>
-    {{$cadastro->links()}}
+    {{$cadastro->onEachSide(-1)->links()}}
 </div>
 
                     </p>

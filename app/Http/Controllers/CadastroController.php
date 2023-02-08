@@ -43,7 +43,7 @@ class CadastroController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'required|max:7',
+            'placa' => 'required|max:7|regex:/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/',
             'nome' => 'required',
             'mat_equip' => 'required',
             
@@ -63,7 +63,7 @@ class CadastroController extends Controller
      */
     public function show(Request $request)
     {
-        $solicitacao = Visitante::paginate(7);
+        $solicitacao = Visitante::paginate(8);
 
         return view('historico2', ['solicitacao' => $solicitacao]);
     }

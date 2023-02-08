@@ -61,7 +61,7 @@ class HistoricoController extends Controller
      */
     public function show(Request $request)
     {
-        $cadastro = Cadastro::paginate(7);
+        $cadastro = Cadastro::paginate(8);
         //$data = Cadastro::find('id')->with(['cadastro'])->get();
 
         return view('historico', ['cadastro' => $cadastro]);

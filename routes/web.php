@@ -68,7 +68,6 @@ Route::group(['middleware' => ['client', 'auth.session']], function() {
 Route::get('/cadastro', [CadastroController::class, 'show2'])
 ->name('solicitacao');
 
-
 Route::get('/historico', [HistoricoController::class, 'show'])
 ->name('historico');
 
