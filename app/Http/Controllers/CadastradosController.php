@@ -54,9 +54,14 @@ class CadastradosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_placa' => 'required|max:7',
-            'mat_equip' => 'required',
-        ]);
+            'id_placa' => 'required',
+            'mat_equip' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ,.?! ]+$/',
+        ],
+    [
+        'id_placa.integer'=> 'Campo Placas é obrigatório',
+        'mat_equip.required'=>'Campo Material | equipamento é obrigatório',
+        
+    ]);
 
         Cadastro::create($request->all());
 
@@ -71,7 +76,7 @@ class CadastradosController extends Controller
      */
     public function show(Request $request)
     {
-        $cadastro = Cadastro::get();
+        $cadastro = Cadastro::orderby('order', 'DESC');;
 
         return view('Cadastro', ['cadastro' => $cadastro]);
     }

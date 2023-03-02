@@ -16,10 +16,7 @@
                 <div class="card-header text-white" style="background-color: #044f84;">Emissão de relatório - Novacap
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <ul class="nav nav-pills card-header-pills">
-                            <li class="nav-item">
-                                <a type="button" class="nav-link active "
-                                    style="margin:-32px 5px;background-color: #053456; "href="{{ route('relatorio') }}">Novacap</a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a type="button" class="nav-link active" style="margin:-32px 5px; background-color: #053456; "
                                     href="{{ route('relatorio.visitante') }}">Visitante</a>

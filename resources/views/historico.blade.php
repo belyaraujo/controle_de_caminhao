@@ -71,10 +71,7 @@
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <ul class="nav nav-pills card-header-pills">
-                            <li class="nav-item ">
-                                <a type="button" class="nav-link active " style="margin:-32px 5px; background-color: #053456; "
-                                    href="{{ route('historico') }}">Novacap</a>
-                            </li>
+                            
                             <li class="nav-item ">
                                 <a type="button" class="nav-link active " style="margin:-32px 8px;background-color: #053456;"
                                 href="{{ route('visitante') }}">Visitante</a>
@@ -181,7 +178,7 @@
                                             <label for="exampleFormControlInput1" class="form-label">Materiais |
                                                 Equipamentos:</label>
                                             <input type="text" class="form-control" name="mat_equip2"
-                                                id="exampleFormControlInput1" placeholder="Digite aqui...">
+                                                id="mat_equip2" placeholder="Digite aqui...">
                                         </div>
                                     </div>
                                     <div class="modal-footer">

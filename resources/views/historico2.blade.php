@@ -59,10 +59,7 @@
                             <a type="button" class="nav-link active" style="margin:-32px 5px;background-color: #053456;"
                                 href="{{ route('historico') }}">Novacap</a>
                             </li>
-                            <li class="nav-item">
-                            <a type="button" class="nav-link active" style="margin:-32px 5px;background-color: #053456;"
-                                href="{{ route('visitante') }}">Visitante</a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

@@ -43,8 +43,8 @@ class HistoricoController extends Controller
     {
         $request->validate([
             'id_placa' => 'required',
-            'mat_equip' => 'required',
-            'mat_equip2' => 'required',
+            'mat_equip' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'mat_equip2' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ,.?! ]+$/',
         ]);
 
         Cadastro::create($request->all());
@@ -61,7 +61,7 @@ class HistoricoController extends Controller
      */
     public function show(Request $request)
     {
-        $cadastro = Cadastro::paginate(8);
+        $cadastro = Cadastro::orderby('id', 'DESC')->paginate(10);
         //$data = Cadastro::find('id')->with(['cadastro'])->get();
 
         return view('historico', ['cadastro' => $cadastro]);

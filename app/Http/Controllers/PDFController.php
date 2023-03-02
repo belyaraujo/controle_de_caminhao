@@ -18,6 +18,7 @@ class PDFController extends Controller
      */
     public function generatePDF()
     {
+        
        
         $relatorio = [
             'title' => 'Relatório de',

@@ -20,10 +20,7 @@
                                 <a type="button" class="nav-link active"style="margin:-32px 5px; background-color: #053456; " 
                                 href="{{ route('relatorio') }}">Novacap</a>
                             </li>
-                            <li class="nav-item">
-                                <a type="button" class="nav-link active"style="margin:-32px 5px; background-color: #053456; " 
-                                href="{{ route('relatorio.visitante') }}">Visitante</a>
-                            </li>
+                    
 
                         </ul>
                     </div>

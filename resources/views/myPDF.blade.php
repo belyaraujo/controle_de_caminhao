@@ -60,7 +60,7 @@
     <div class="container-fluid">
         <div>
             <div style="float: left">
-
+                <img src="{{ public_path('/img/Logo_transparente.png') }}" style="width: 160px; height: 60px" />
             </div>
             <div>
                 <h5>GOVERNO DO DISTRITO FEDERAL</h5>

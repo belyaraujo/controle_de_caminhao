@@ -44,10 +44,15 @@ class CadastroController extends Controller
     {
         $request->validate([
             'placa' => 'required|max:7|regex:/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/',
-            'nome' => 'required',
-            'mat_equip' => 'required',
+            'nome' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'mat_equip' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ,.?! ]+$/',
             
-        ]);
+        ],
+    [
+        'placa.required'=>'Campo placa é obrigatório',
+        'nome.required'=>'Campo Nome do motorista é obrigatório',
+        'mat_equip.required'=>'Campo Material | equipamento é obrigatório'
+    ]);
 
         Visitante::create($request->all());
 
@@ -63,7 +68,7 @@ class CadastroController extends Controller
      */
     public function show(Request $request)
     {
-        $solicitacao = Visitante::paginate(8);
+        $solicitacao = Visitante::orderby('id', 'DESC')->paginate(10);
 
         return view('historico2', ['solicitacao' => $solicitacao]);
     }
