@@ -58,8 +58,8 @@ class CadastradosController extends Controller
             'mat_equip' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ,.?! ]+$/',
         ],
     [
-        'id_placa.integer'=> 'Campo Placas é obrigatório',
-        'mat_equip.required'=>'Campo Material | equipamento é obrigatório',
+        'id_placa.integer'=> 'O campo Placas é obrigatório',
+        'mat_equip.required'=>'O campo Materiais | Equipamentos é obrigatório',
         
     ]);
 

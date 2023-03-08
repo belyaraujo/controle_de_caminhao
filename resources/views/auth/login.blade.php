@@ -7,17 +7,17 @@
 <nav class="navbar " style="background-color: #E0E0E0;">
     <div class="container-fluid">
         <a class="navbar-brand">
-            <img src="/img/Logo_transparente.png" style="width: 150px; height: 60px"
+            <img src="{{asset('/img/Logo_transparente.png')}}" style="width: 150px; height: 60px"
                 class="d-inline-block align-text-top">
             <a class="navbar-brand text-dark">
                 Login
             </a>
             <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/login">Entrar</a>
+                <li class="nav-item" hidden>
+                    <a class="nav-link text-dark" href="{{ route('login') }}">Entrar</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/register">Registrar</a>
+                <li class="nav-item" hidden>
+                    <a class="nav-link text-dark" href="{{ route('register') }}">Registrar</a>
                 </li>
 
                 
@@ -30,7 +30,7 @@
     <x-auth-card>
         <x-slot name="logo">
            
-            <img src="/img/Logo_transparente.png" style="width: 150px; height: 60px" />
+            <img src="{{asset('/img/Logo_transparente.png')}}" style="width: 150px; height: 60px" />
         
     </x-slot>
     

@@ -49,9 +49,9 @@ class CadastroController extends Controller
             
         ],
     [
-        'placa.required'=>'Campo placa é obrigatório',
-        'nome.required'=>'Campo Nome do motorista é obrigatório',
-        'mat_equip.required'=>'Campo Material | equipamento é obrigatório'
+        'placa.required'=>'O campo Placa é obrigatório',
+        'nome.required'=>'O campo Nome do motorista é obrigatório',
+        'mat_equip.required'=>'O campo Materiais | Equipamentos é obrigatório'
     ]);
 
         Visitante::create($request->all());
