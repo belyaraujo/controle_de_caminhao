@@ -16,7 +16,7 @@ class Relatorio2Controller extends Controller{
 
 public function relatorio2(Request $request){
 
- $placa = Visitante::orderby('id')->distinct('placa')->get();
+ $placa = Visitante::orderby('id')->distinct()->get('placa');
  //$placa = DB::table('visitantes')->distinct('placas')->get();
 
  //pode dar erro aqui!!! na parte do 'id'
