@@ -10,12 +10,14 @@ use PDF;
 use Maatwebsite\Excel\Facades\CSV;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\Relatorio2Export;
+use Illuminate\Support\Facades\DB;
 
 class Relatorio2Controller extends Controller{
 
 public function relatorio2(Request $request){
 
- $placa = Visitante::orderby('id')->get();
+ //$placa = Visitante::orderby('id')->distinct('placa')->get();
+ $placa = DB::table('visitantes')->distinct('placas')->get();
 
  //pode dar erro aqui!!! na parte do 'id'
  $solicitacao = Visitante::where('placa', '=', $request->id_placa)

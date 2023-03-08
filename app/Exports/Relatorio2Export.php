@@ -60,7 +60,7 @@ class Relatorio2Export implements WithMapping, WithHeadings, Fromquery, WithCust
     {
         return [
             'delimiter'        => ',',
-            'enclosure'        => '"',
+            'enclosure'        => '',
             'escape_character' => '\\',
             'contiguous'       => false,
             'use_bom'          => true,
