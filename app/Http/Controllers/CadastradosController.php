@@ -55,7 +55,7 @@ class CadastradosController extends Controller
     {
         $request->validate([
             'id_placa' => 'required',
-            'mat_equip' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ,.?! ]+$/',
+            'mat_equip' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ, ]+$/',
         ],
     [
         'id_placa.integer'=> 'O campo Placas é obrigatório',
